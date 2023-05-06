@@ -17,7 +17,7 @@ type API int
 var database []Item
 
 func (a *API) GetDB(empty string, reply *[]Item) error {
-	*reply = database
+	*reply = database //returns the entire database array by assigning the database to the reply pointer
 	return nil
 }
 
@@ -41,7 +41,7 @@ func (a *API) AddItem(item Item, reply *Item) error {
 	return nil
 }
 
-func (a *API) EditItem(item Item, reply *Item) error {
+func (a *API) EditItem(item Item, reply *Item) error { // modifies the db with only the matching title
 	var changed Item
 
 	for idx, val := range database {
